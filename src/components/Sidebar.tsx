@@ -23,7 +23,7 @@ export const Sidebar = ({ activeTab, onTabChange }: SidebarProps) => {
       <div className="p-4 border-b border-gray-200">
         <div className="flex items-center justify-between">
           {!isCollapsed && (
-            <h1 className="text-xl font-bold text-gray-900">Video Hire</h1>
+            <h1 className="text-xl font-bold text-gray-900">Jobie</h1>
           )}
           <button
             onClick={() => setIsCollapsed(!isCollapsed)}

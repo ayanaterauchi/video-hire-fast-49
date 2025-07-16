@@ -1,5 +1,6 @@
+
 import { useState, useRef } from 'react';
-import { ChevronDown, Play, Pause, SkipForward, Check, X, CheckCircle, Undo2 } from 'lucide-react';
+import { ChevronDown, Play, Pause, SkipForward, Check, X, CheckCircle } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -57,18 +58,6 @@ export const SwipePage = () => {
         prev.map((candidate, index) => 
           index === currentCandidateIndex 
             ? { ...candidate, currentQuestion: candidate.currentQuestion + 1 }
-            : candidate
-        )
-      );
-    }
-  };
-
-  const handleUndoOffer = () => {
-    if (currentCandidate && currentCandidate.status === 'offered') {
-      setCandidates(prev => 
-        prev.map((candidate, index) => 
-          index === currentCandidateIndex 
-            ? { ...candidate, status: 'pending' }
             : candidate
         )
       );
@@ -159,20 +148,6 @@ export const SwipePage = () => {
       </div>
 
       <div className="flex-1 flex flex-col p-4">
-        {/* Undo Offer Button */}
-        {currentCandidate.status === 'offered' && (
-          <div className="mb-4 text-center">
-            <Button
-              onClick={handleUndoOffer}
-              variant="outline"
-              className="bg-yellow-50 border-yellow-300 text-yellow-800 hover:bg-yellow-100"
-            >
-              <Undo2 size={16} className="mr-2" />
-              Undo Job Offer
-            </Button>
-          </div>
-        )}
-
         {/* Video Card */}
         <div className="flex-1 flex items-center justify-center">
           <Card 
